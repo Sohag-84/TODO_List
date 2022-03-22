@@ -39,7 +39,10 @@ class _TaskScreenState extends State<TaskScreen> {
               builder: (context) => AddTaskScreen(
                 //create call back function
                   (newTaskTitle){
-                    print(newTaskTitle);
+                    setState(() {
+                      tasks.add(Task(name: newTaskTitle));
+                    });
+
                   }
               )
           );
