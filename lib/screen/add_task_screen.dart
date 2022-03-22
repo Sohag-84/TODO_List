@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
-class AddTaskScreen extends StatelessWidget {
-  const AddTaskScreen({Key? key}) : super(key: key);
+class AddTaskScreen extends StatefulWidget {
+
+  final Function addTaskCallBack;
+  AddTaskScreen(this.addTaskCallBack);
+
+  @override
+  State<AddTaskScreen> createState() => _AddTaskScreenState();
+}
+
+class _AddTaskScreenState extends State<AddTaskScreen> {
+
+  late String newTaskTitle;
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       color: const Color(0xff757575),
       child: Container(
@@ -16,23 +27,30 @@ class AddTaskScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children:  [
-              const Text('Add Task',
+               const Text('Add Task',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.lightBlue,fontSize: 25),
               ),
-              const TextField(
+               TextField(
                 textAlign: TextAlign.center,
                 autofocus: true,//it helps us to show automatic keyboard
-                decoration: InputDecoration(
-                  border:  UnderlineInputBorder(
-                  ),
-                ),
+                // decoration: const InputDecoration(
+                //   border:  UnderlineInputBorder(
+                //   ),
+                // ),
+                onChanged: (value){
+                  newTaskTitle = value;
+                },
               ),
               const SizedBox(height: 20,),
               ElevatedButton(
-                //style: raisedButtonStyle,
-                onPressed: () { },
-                child: const Text('Add',style: TextStyle(fontSize: 20),),
+                onPressed: () {
+                  //print(newTaskTitle);
+                  widget.addTaskCallBack(newTaskTitle);
+                },
+                child: const Text(
+                  'Add',
+                  style: TextStyle(fontSize: 20),),
               ),
 
             ],
