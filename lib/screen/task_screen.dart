@@ -5,6 +5,8 @@ import 'package:todo_list/widgets/task_list.dart';
 import 'add_task_screen.dart';
 
 class TaskScreen extends StatefulWidget {
+  const TaskScreen({Key? key}) : super(key: key);
+
 
 
 
@@ -25,7 +27,7 @@ class _TaskScreenState extends State<TaskScreen> {
   Widget build(BuildContext context) {
 
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    //double width = MediaQuery.of(context).size.width;
 
 
     return Scaffold(
@@ -63,7 +65,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 ),
                 SizedBox(height: height*0.01,),
                 const Text('Todoey',style:  TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),),
-                const Text('12 Tasks',style: TextStyle(color: Colors.white,fontSize: 17),),
+                 Text('${tasks.length} Tasks',style: const TextStyle(color: Colors.white,fontSize: 17),),
                 SizedBox(height: height*0.02,)
               ],
             ),
