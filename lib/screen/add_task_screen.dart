@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_list/model/task_data.dart';
+import 'package:todo_list/model/task_model.dart';
 class AddTaskScreen extends StatefulWidget {
+  const AddTaskScreen({Key? key}) : super(key: key);
 
-  final Function addTaskCallBack;
-  AddTaskScreen(this.addTaskCallBack);
 
   @override
   State<AddTaskScreen> createState() => _AddTaskScreenState();
@@ -45,8 +47,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               const SizedBox(height: 20,),
               ElevatedButton(
                 onPressed: () {
-                  //print(newTaskTitle);
-                  widget.addTaskCallBack(newTaskTitle);
+                  Provider.of<TaskData>(context,listen: false).addTask(newTaskTitle);
+                  Navigator.pop(context);
                 },
                 child: const Text(
                   'Add',
