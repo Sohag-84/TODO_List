@@ -51,7 +51,10 @@ class TaskScreen extends StatelessWidget {
                 ),
                 SizedBox(height: height*0.01,),
                 const Text('Todoey',style:  TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),),
-                 Text('${Provider.of<TaskData>(context).tasks.length} Tasks',style: const TextStyle(color: Colors.white,fontSize: 17),),
+                 Text(
+                   '${Provider.of<TaskData>(context).taskCount} Tasks',
+                   style: const TextStyle(color: Colors.white,fontSize: 17),
+                 ),
                 SizedBox(height: height*0.02,)
               ],
             ),
