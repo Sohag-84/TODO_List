@@ -14,7 +14,6 @@ class TaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     double height = MediaQuery.of(context).size.height;
-    //double width = MediaQuery.of(context).size.width;
 
 
     return Scaffold(
@@ -43,7 +42,7 @@ class TaskScreen extends StatelessWidget {
                   radius: 30,
                 ),
                 SizedBox(height: height*0.01,),
-                const Text('Todoey',style:  TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),),
+                const Text('To-Do List',style:  TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),),
                  Text(
                    '${Provider.of<TaskData>(context).taskCount} Tasks',
                    style: const TextStyle(color: Colors.white,fontSize: 17),
