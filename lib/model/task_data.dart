@@ -20,4 +20,9 @@ class TaskData extends ChangeNotifier{
     tasks.add(task);
     notifyListeners();
   }
+  //for check Checkbox is checked or not
+  void updateTask(Task task){
+    task.toggleDone();
+    notifyListeners();
+  }
 }
